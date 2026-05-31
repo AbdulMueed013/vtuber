@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>Portfolio and Reviews | V Tuber </title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* TOP BAR */
+.one-nav-black{
+    width:100%;
+    height:40px;
+    background:black;
+}
+
+/* MAIN NAVBAR */
+.two-nav-black{
+    width:100%;
+    background:#000;
+    padding:15px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:relative;
+    border-bottom:1px solid #222;
+}
+
+/* LEFT SIDE */
+.left-side{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+/* LOGO */
+.logo{
+    width:110px;
+}
+
+/* MENU ICON */
+.menu-icon{
+    display:none;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+}
+
+/* NAV LINKS */
+.nav-bar{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+/* LINKS */
+.nav-bar a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.nav-bar a:hover{
+    color:lawngreen;
+}
+
+/* BUTTON */
+.btn{
+    padding:12px 20px;
+    border:none;
+    border-radius:30px;
+    background:lawngreen;
+     cursor:pointer;
+  transition:0.3s;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+    .two-nav-black{
+        padding:15px 20px;
+    }
+
+    /* MENU ICON SHOW */
+    .menu-icon{
+        display:block;
+    }
+
+    /* LOGO */
+    .logo{
+        width:90px;
+    }
+
+    /* DROPDOWN MENU */
+    .nav-bar{
+        position:absolute;
+        top:100%;
+        left:0;
+
+        width:100%;
+        background:#000;
+
+        display:flex;
+        flex-direction:column;
+
+        gap:20px;
+        padding:25px 0;
+
+        border-top:1px solid #222;
+
+        transform:translateY(-20px);
+        opacity:0;
+        visibility:hidden;
+
+        transition:0.4s;
+    }
+
+    /* ACTIVE MENU */
+    .nav-bar.active{
+        transform:translateY(0);
+        opacity:1;
+        visibility:visible;
+    }
+
+    .btn{
+        width:220px;
+    }
+}
+
+/* EXTRA SMALL MOBILE */
+
+@media(max-width:375px){
+
+    .logo{
+        width:80px;
+    }
+
+    .nav-bar a{
+        font-size:14px;
+    }
+
+    .btn{
+        width:90%;
+        font-size:13px;
+    }
+}
+
+
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial;
+    background:black;
+    color:white;
+}
+
+/* TITLE SECTION */
+.review-section{
+    width:100%;
+    text-align:center;
+    padding:60px 20px 20px 20px;
+}
+
+.review-section h1{
+    font-size:50px;
+    color:white;
+    margin-bottom:10px;
+}
+
+.review-section h1 span{
+    color:lawngreen;
+}
+
+.review-section p{
+    font-size:18px;
+    color:#ccc;
+    max-width:700px;
+    margin:0 auto;
+}
+
+/* CARDS GRID (FIXED GAP ISSUE) */
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px;
+    padding:40px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* CARD */
+.card{
+    background:#111;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* hover */
+.card:hover{
+      transform: translateY(-10px);
+    box-shadow: 0px 0px 25px rgba(255,255,255,0.15);
+}
+
+/* image */
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+/* name */
+.card h2{
+    margin:12px 0 5px 0;
+    font-size:22px;
+    text-align:center;
+}
+
+/* stars */
+.card span{
+    display:block;
+    text-align:center;
+    color:gold;
+    font-size:18px;
+}
+
+/* text */
+.card p{
+    padding:10px 15px 20px;
+    font-size:14px;
+    color:#ddd;
+    text-align:center;
+    line-height:1.5;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .review-section h1{
+        font-size:30px;
+    }
+}
+
+
+
+.dream-vtuber{
+  min-height:500px;
+  width:100%;
+  background:black;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:50px 20px;
+}
+
+.dream-content{
+  max-width:1000px;
+}
+
+.dream-content h1{
+  font-size:40px;
+  color:white;
+  margin-bottom:20px;
+}
+
+.dream-content p{
+  font-size:18px;
+  line-height:1.8;
+}
+
+@media(max-width:768px){
+
+.back-img{
+background-color: black;
+
+}
+}
+
+
+
+
+
+
+
+body{
+    background:black;
+}
+
+/* FOOTER */
+.footer{
+    width:100%;
+    background:black;
+    color:white;
+    padding:60px 8%;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222; /* 🔥 top + bottom line effect */
+}
+
+/* container */
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+/* LEFT */
+.footer-left{
+    flex:1;
+    min-width:250px;
+}
+
+.footer-logo{
+    width:180px;
+    margin-bottom:15px;
+}
+
+.footer-left p{
+    color:#bbb;
+    line-height:1.6;
+    font-size:14px;   /* 🔥 smaller font */
+    margin-bottom:20px;
+}
+
+/* SOCIAL ICONS */
+.social-icons{
+    display:flex;
+    gap:12px;
+    margin-top:15px;
+}
+
+.social-icons a{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid lawngreen;
+    border-radius:50%;
+    margin-left: 30px;
+    background:#111;
+    transition:0.3s;
+}
+
+.social-icons a i{
+    color:white;
+    font-size:14px;
+}
+
+.social-icons a:hover{
+    background:lawngreen;
+    transform:translateY(-3px);
+}
+
+.social-icons a:hover i{
+    color:black;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* FOOTER SAFE CONTAINER */
+.footer{
+    width:100%;
+    max-width:100vw;
+    overflow-x:hidden;
+    background:black;
+    color:white;
+    padding:60px 8%;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+}
+
+/* FLEX FIX */
+.footer-container{
+    display:flex;
+    margin-left: 40px;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* SAFE WIDTH CONTROL */
+.footer-left,
+.footer-links,
+.footer-location{
+    flex:1;
+    min-width:220px;
+    color: white;
+    margin-left: 40px;
+}
+
+/* LOGO SAFE */
+.footer-logo{
+    margin-left: 40px;
+    width:160px;
+    max-width:100%;
+    height:auto;
+}
+
+/* TEXT SAFE */
+.footer-left p{
+    margin-left: 40px;
+    font-size:14px;
+    line-height:1.6;
+    color:#bbb;
+}
+
+/* LIST FIX */
+.footer ul{
+    padding:0;
+    color: white;
+    margin:0;
+}
+
+.footer ul li{
+    list-style:none;
+    color: white;
+}
+
+/* COPY FIX */
+.copy{
+    width:100%;
+    text-align:center;
+    font-size:13px;
+    padding:20px 10px;
+    border-top:1px solid #222;
+    color: white;
+    margin-top:40px;
+    color:#888;
+}
+
+
+.footer ul li a{
+    color:white ;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+/* hover effect */
+.footer ul li a:hover{
+    color:lawngreen;
+    padding-left:5px;
+}
+
+
+.footer-links ul li a,
+.footer-location ul li a{
+    color:white !important;
+}
+
+span{
+    color: lawngreen;
+}
+
+
+
+
+.btn:hover{
+  background:white;
+  transform:scale(1.05);
+  box-shadow:0 0 15px lawngreen;
+}
+
+
+/* MOBILE FIX */
+@media(max-width:768px){
+    .footer-container{
+        flex-direction:column;
+        text-align:left;
+    }
+}
+
+
+/* ====== 375PX FULL FIX ====== */
+
+html,body{
+    overflow-x:hidden;
+    width:100%;
+}
+
+/* NAVBAR FIX */
+@media(max-width:375px){
+
+    .two-nav-black{
+        padding:12px 15px;
+    }
+
+    .nav-bar{
+        width:100%;
+        left:0;
+        padding:20px 10px;
+    }
+
+    .nav-bar a{
+        font-size:14px;
+        text-align:center;
+    }
+
+    .btn{
+        width:95%;
+        max-width:280px;
+        font-size:13px;
+        padding:12px;
+    }
+
+    .logo{
+        width:75px;
+    }
+}
+
+/* REVIEW SECTION FIX */
+@media(max-width:375px){
+
+    .review-section{
+        padding:40px 15px 10px;
+    }
+
+    .review-section h1{
+        font-size:26px;
+        line-height:1.3;
+    }
+
+    .review-section p{
+        font-size:14px;
+        line-height:1.6;
+    }
+}
+
+/* CARD FIX */
+@media(max-width:375px){
+
+    .cards{
+        grid-template-columns:1fr;
+        padding:20px 15px;
+        gap:18px;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    .card img{
+        height:220px;
+    }
+
+    .card h2{
+        font-size:20px;
+    }
+
+    .card p{
+        font-size:13px;
+    }
+}
+
+/* DREAM SECTION FIX */
+@media(max-width:375px){
+
+    .dream-vtuber{
+        padding:40px 15px;
+    }
+
+    .dream-content h1{
+        font-size:28px;
+        line-height:1.4;
+    }
+
+    .dream-content p{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .dream-content img{
+        width:100%;
+        height:auto;
+        margin-top:20px;
+    }
+}
+
+/* FOOTER FIX */
+@media(max-width:375px){
+
+    .footer{
+        padding:40px 20px;
+    }
+
+    .footer-container{
+        flex-direction:column;
+        gap:35px;
+    }
+
+    .footer-logo{
+        width:130px;
+        margin-left:0;
+    }
+
+    .footer-left p{
+        margin-left:0;
+        font-size:13px;
+    }
+
+    .social-icons{
+        justify-content:flex-start;
+    }
+
+    .social-icons a{
+        margin-left:0;
+    }
+
+    .footer-links h2,
+    .footer-location h2{
+        font-size:22px;
+        margin-bottom:15px;
+    }
+
+    .footer ul li{
+        margin-bottom:10px;
+    }
+
+    .copy{
+        font-size:12px;
+        padding:15px 10px;
+    }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="one-nav-black"></div>
+
+<!-- NAVBAR -->
+<div class="two-nav-black">
+
+    <!-- LEFT SIDE -->
+    <div class="left-side">
+
+        <!-- LOGO -->
+        <img class="logo" src="images/logo.png">
+
+    </div>
+
+    <!-- MENU ICON -->
+    <div class="menu-icon" id="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- NAV LINKS -->
+    <div class="nav-bar" id="nav-menu">
+
+        <a href="#">About Us</a>
+        <a href="./portfolio.html">Portfolio And Reviews</a>
+        <a href="#">Locations</a>
+        <a href="#">Contact Us</a>
+
+      
+  <button class="btn" onclick="window.location.href='next.html'">
+    Commission your Model
+  </button>
+    </div>
+
+</div>
+<div class="review-section">
+
+    <h1>See what <span>VTubers</span> say about us</h1>
+
+    <p>
+        Take a look at what these featured content creators say
+        about the VTuber model commissions we've done for them.
+    </p>
+</div>
+
+
+
+
+       <div class="cards" id="cards">
+
+        <!-- CARD 1 -->
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc3c4ecb4f496f69702f1d_vtuber-example-JJerico_.jpg">
+            <h2>JJerico_</h2>
+            <span>★★★★★</span>
+            <p>“Luna was very helpful and patient when I didn’t understand some things”.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc3142e4b0a5026e9c1274_vtuber-example-lukanenv.jpg">
+            <h2>RinGyo</h2>
+            <span>★★★★★</span>
+            <p>“Amazing experience from start to finish. The model quality was incredible.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc29321d4a7950e7eb4c27_vtuber-example-Hzope-100.jpg">
+            <h2>Hzope</h2>
+            <span>★★★★★</span>
+            <p>“The artist understood exactly what I wanted and delivered beyond expectations.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63e22c16fc264b2c9cb4a9d0_vtuber-example-eye.jpg">
+            <h2>LunaChan</h2>
+            <span>★★★★★</span>
+            <p>“Very smooth communication and the final VTuber model looked stunning.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc3142e4b0a5026e9c1274_vtuber-example-lukanenv.jpg">
+            <h2>Mika</h2>
+            <span>★★★★★</span>
+            <p>“Everything was handled professionally and the animations felt super natural.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc455f8f7a074e8c4c6e5e_vtuber-example-AP.jpg">
+            <h2>Sakura</h2>
+            <span>★★★★★</span>
+            <p>“Fast delivery, beautiful art style and excellent support throughout the project.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc455f8f7a074e8c4c6e5e_vtuber-example-AP.jpg">
+            <h2>Yuki</h2>
+            <span>★★★★★</span>
+            <p>“Very smooth communication and the final VTuber model looked stunning.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc3142e4b0a5026e9c1274_vtuber-example-lukanenv.jpg">
+            <h2>Airi</h2>
+            <span>★★★★★</span>
+            <p>“Everything was handled professionally and the animations felt super natural.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63e22c16fc264b2c9cb4a9d0_vtuber-example-eye.jpg">
+            <h2>Neko</h2>
+            <span>★★★★★</span>
+            <p>“Fast delivery, beautiful art style and excellent support throughout the project.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63e22c16fc264b2c9cb4a9d0_vtuber-example-eye.jpg">
+            <h2>Yoko</h2>
+            <span>★★★★★</span>
+            <p>“Amazing VTuber experience and smooth communication.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc29321d4a7950e7eb4c27_vtuber-example-Hzope-100.jpg">
+            <h2>Yumi</h2>
+            <span>★★★★★</span>
+            <p>“Professional team and beautiful VTuber design.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc455f8f7a074e8c4c6e5e_vtuber-example-AP.jpg">
+            <h2>Kira</h2>
+            <span>★★★★★</span>
+            <p>“Highly recommended for streamers and creators.”</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="dream-vtuber">
+
+  <div class="dream-content">
+
+    <h1>Create Your Dream VTuber Identity With <span> GamingVTuber </span></h1>
+
+    <p>
+      Gaming VTuber is a creative VTuber design studio specializing in custom VTuber models, Live2D rigging, anime avatars, and virtual streamer branding. Whether you’re starting your first Twitch stream or building a professional virtual creator brand, our team creates high-quality VTuber avatars designed to match your personality and audience.
+      <br><br>
+      We help creators transform their ideas into expressive virtual identities that engage viewers and build memorable online personas.
+    </p>
+
+<img src="file:///D:/mueed/file.html/...html/Index.html/portfolio/home-after-hero-img.png" alt="">
+  </div>
+
+</div>
+
+
+
+
+<div class="footer-container">
+
+    <!-- LEFT -->
+
+    <div class="footer-left">
+
+        <img src="images/logo.png" class="footer-logo">
+
+        <p>
+            GamingVTuber.com is a professional VTuber design
+            studio providing custom 2D VTuber models,
+            Live2D rigging, PNGTubers, and 3D VTuber avatars
+            for streamers and content creators worldwide.
+        </p>
+
+      <div class="social-icons">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+</div>
+
+    </div>
+
+    <!-- CENTER -->
+
+    <div class="footer-links">
+
+        <h2>Company</h2>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Our Portfolio</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Get Started</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+
+    </div>
+
+
+    <div class="footer-location">
+
+        <h2>Locations</h2>
+
+        <ul>
+            <li><a href="#">VTuber USA</a></li>
+            <li><a href="#">VTuber UK</a></li>
+            <li><a href="#">VTuber Germany</a></li>
+            <li><a href="#">VTuber Italy</a></li>
+            <li><a href="#">VTuber Canada</a></li>
+            <li><a href="#">VTuber Australia</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+<div class="copy">
+    © 2026 GamingVTuber.com — All Rights Reserved
+</div>
+
+</footer>
+
+
+
+
+<script>
+
+let menuBtn = document.getElementById("menu-btn");
+let navMenu = document.getElementById("nav-menu");
+
+menuBtn.onclick = function(){
+
+    navMenu.classList.toggle("active");
+
+}
+
+</script>
+
+</body>
+</html>

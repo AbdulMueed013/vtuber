@@ -1,0 +1,3315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VTuber Model Commission | Custom</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" type="image/png" href="./images/png.png">
+
+<style>
+
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial;
+}
+
+body{
+  padding-top:182px;
+}
+
+.top-nav{
+    width:100%;
+    height:50px;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 70px;
+    background:white;
+}
+
+.top-left i{
+    margin-right:18px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.top-right{
+    display:flex;
+    gap:25px;
+    font-size:15px;
+}
+
+.top-right i{
+    color:#2b35ff;
+    margin-right:7px;
+}
+
+@media(max-width:768px){
+
+.top-nav{
+    padding:0 20px;
+    flex-direction:column;
+    height:auto;
+    gap:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.top-right{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+}
+
+}
+
+
+
+.one-nav-black{
+  height:50px;
+  width:100%;
+  background:rgba(0,0,0,0.93);
+
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+}
+
+.two-nav-black{
+  height:130px;
+  width:100%;
+  background:rgba(0,0,0,0.93);
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 20px;
+
+  position:fixed;
+  top:50px;
+  left:0;
+  z-index:1000;
+}
+
+.logo{
+  height:100px;
+  width:120px;
+}
+
+/* NAV LINKS */
+.nav-bar{
+  display:flex;
+  gap:35px;
+  align-items:center;
+}
+
+.nav-bar a{
+  color:white;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.nav-bar a:hover{
+  color:lime;
+}
+
+.btn{
+  height:48px;
+  width:230px;
+  border:none;
+  border-radius:30px;
+  background:lawngreen;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:white;
+  transform:scale(1.05);
+  box-shadow:0 0 15px lawngreen;
+}
+
+.menu-btn{
+  display:none;
+  font-size:32px;
+  background:none;
+  border:none;
+  color:white;
+  cursor:pointer;
+}
+
+.side-menu{
+  position:fixed;
+  top:0;
+  left:-280px;
+  width:280px;
+  height:100%;
+  background:black;
+  padding-top:80px;
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+  transition:0.3s;
+  z-index:9999;
+}
+
+.side-menu a{
+  color:white;
+  text-decoration:none;
+  padding-left:20px;
+  font-size:18px;
+}
+
+.side-menu.active{
+  left:0;
+}
+
+.back-img{
+  background:url(images/vtuber.png);
+  background-size:cover;
+  background-position:center;
+  height:100vh;
+  position:relative;
+}
+
+.back-img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0, 0, 0, 0.747);
+}
+
+.hero-text{
+  position:absolute;
+  top:50%;
+  left:10%;
+  transform:translateY(-50%);
+  color:white;
+  max-width:700px;
+  z-index:1;
+}
+
+.hero-text h1{
+  font-size:50px;
+  color:lawngreen;
+  line-height:1.2;
+  margin-bottom:20px;
+}
+
+.hero-text h3{
+  font-size:20px;
+  margin-bottom:20px;
+}
+
+.hero-text p{
+  font-size:18px;
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+.hero-text ul{
+  margin-bottom:25px;
+}
+
+.hero-text ul li{
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.hero-btn{
+  height:50px;
+  width:280px;
+  border:none;
+  border-radius:30px;
+  background:#d8ff3e;
+  font-size:17px;
+  font-weight:bold;
+  margin-right:15px;
+  margin-top:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.hero-btn:hover{
+  background:white;
+  transform:scale(1.05);
+  box-shadow:0 0 15px lawngreen;
+}
+
+.dream-vtuber{
+  min-height:500px;
+  width:100%;
+  background:black;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:50px 20px;
+}
+
+.dream-content{
+  max-width:1000px;
+}
+
+.dream-content h1{
+  font-size:40px;
+  color:white;
+  margin-bottom:20px;
+}
+
+.dream-content p{
+  font-size:18px;
+  line-height:1.8;
+}
+
+@media(max-width:768px){
+
+.back-img{
+background-color: black;
+
+}
+
+
+
+  .nav-bar{
+    display:none;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero-text{
+    left:5%;
+    right:5%;
+    max-width:100%;
+    
+  }
+
+  .hero-text h1{
+    font-size:30px;
+  }
+
+  .hero-text h3,
+  .hero-text p,
+  .hero-text ul li{
+    font-size:14px;
+  }
+
+  .hero-btn{
+    width:100%;
+  }
+
+  .dream-content h1{
+    font-size:28px;
+  }
+
+  .dream-content p{
+    font-size:15px;
+  }
+
+
+}
+
+.dream-content img{
+  margin-top: 30px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media(max-width:768px){
+  .dream-content img{
+    width: 100%;
+  }
+}
+
+.services-section{
+  width:100%;
+  background:black;
+  color:white;
+  padding:80px 20px;
+  text-align:center;
+}
+
+.services-section h1{
+  font-size:40px;
+  color:lawngreen;
+  margin-bottom:10px;
+}
+
+.services-section p{
+  font-size:18px;
+  margin-bottom:40px;
+  color:white;
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:25px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.service-card{
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:15px;
+  transition:0.3s;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.service-card:hover{
+
+  transform: translateY(-10px);
+    box-shadow: 0px 0px 25px rgba(255,255,255,0.15);
+  }
+
+
+.service-card h2{
+  font-size:20px;
+  margin-bottom:10px;
+  color:lawngreen;
+}
+
+.service-card p{
+  font-size:15px;
+  line-height:1.6;
+}
+
+@media(max-width:992px){
+  .services-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media(max-width:600px){
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services-section h1{
+    font-size:28px;
+  }
+}
+
+.process-section{
+  width:100%;
+  background:black;
+  color:white;
+  padding:80px 20px;
+}
+
+.process-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  gap:40px;
+  align-items:flex-start;
+}
+
+.process-image img{
+  width:100%;
+  max-width:450px;
+}
+
+.process-content h1{
+  font-size:36px;
+  color:lawngreen;
+  margin-bottom:25px;
+}
+
+.step{
+  display:flex;
+  gap:15px;
+  margin-bottom:20px;
+  align-items:flex-start;
+}
+
+.step .num{
+  width:35px;
+  height:35px;
+  background:lawngreen;
+  color:black;
+  font-weight:bold;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:50%;
+  flex-shrink:0;
+}
+
+.step h2{
+  font-size:18px;
+  margin-bottom:5px;
+  color:lawngreen;
+}
+
+.step p{
+  font-size:15px;
+  line-height:1.6;
+}
+
+@media(max-width:900px){
+
+  .process-container{
+    flex-direction:column;
+    text-align:left;
+  }
+
+  .process-image img{
+    max-width:100%;
+  }
+
+  .process-content h1{
+    font-size:28px;
+  }
+}
+
+
+.vtuber-section{
+  padding:40px 15px;
+}
+
+.heading{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.heading h2{
+  font-size:25x;
+}
+
+.heading p{
+  font-size:14px;
+  color:white;
+  margin-top:5px;
+}
+
+.card-wrapper{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+}
+
+.card{
+  flex: 1 1 220px;  
+  border:1px solid #ddd;
+  padding:12px;
+  background:#fff;
+}
+
+.card h3{
+  font-size:15px;
+  margin-bottom:6px;
+}
+
+.card p{
+  font-size:13px;
+  color:#444;
+  line-height:1.4;
+}
+
+@media (max-width: 768px){
+  .card{
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 500px){
+  .card{
+    flex: 1 1 100%;
+  }
+}
+
+
+
+.vtuber-section{
+  width:100%;
+  background:black;
+  color:white;
+  padding:80px 20px;
+  text-align:center;
+}
+
+.vtuber-section .heading h1{
+  font-size:30px;
+  color:lawngreen;
+  margin-bottom:10px;
+}
+
+.vtuber-section .heading p{
+  font-size:60px;
+  margin-bottom:40px;
+  color: white;
+}
+
+.card-wrapper{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:25px;
+  justify-content:center;
+}
+
+.card{
+  flex:1 1 300px;
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  color: white;
+  border-radius:15px;
+}
+
+.card h3{
+  font-size:18px;
+  margin-bottom:10px;
+  color:lawngreen;
+}
+
+.card p{
+  font-size:15px;
+  line-height:1.6;
+  color: white;
+}
+
+span{
+  color:lawngreen;
+}
+
+
+@media(max-width:768px){
+
+  .vtuber-section .heading h2{
+    font-size:28px;
+  }
+
+  .vtuber-section .heading p{
+    font-size:15px;
+  }
+
+  .card{
+    flex:1 1 100%;
+  }
+}
+
+.satisfaction-section{
+  width:100%;
+  background:black;
+  color:white;
+  padding:80px 20px;
+  text-align:center;
+}
+
+.satisfaction-section h2{
+  font-size:40px;
+  color:lawngreen;
+  margin-bottom:15px;
+}
+
+.satisfaction-section h3{
+  font-size:20px;
+  margin-bottom:20px;
+}
+
+.satisfaction-section p{
+  font-size:16px;
+  line-height:1.8;
+  max-width:900px;
+  margin:auto;
+  margin-bottom:30px;
+}
+
+.satisfaction-btn{
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:lawngreen;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.satisfaction-btn:hover{
+  background:white;
+  transform:scale(1.05);
+  box-shadow:0 0 15px lawngreen;
+}
+
+@media(max-width:768px){
+
+  .satisfaction-section h2{
+    font-size:28px;
+  }
+
+  .satisfaction-section h3{
+    font-size:16px;
+  }
+
+  .satisfaction-section p{
+    font-size:14px;
+  }
+}
+
+
+
+.cta-section{
+  width:100%;
+  background:black;
+  color:white;
+  padding:80px 20px;
+}
+
+.cta-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:40px;
+}
+
+.cta-image img{
+  height: 300px;
+  width:380px;
+  max-width:450px;
+  display:block;
+}
+
+.cta-text h2{
+  font-size:60px;
+  color:lawngreen;
+  margin-bottom:15px;
+}
+
+.cta-text h3{
+  font-size:50px;
+  margin-bottom:20px;
+}
+
+.cta-text p{
+  font-size:20px;
+  
+  line-height:1.8;
+  margin-bottom:25px;
+}
+
+.cta-btn{
+  padding:12px 30px;
+  border:none;
+  font-size: larger;
+  border-radius:30px;
+  background:lawngreen;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.cta-btn:hover{
+  background:white;
+  transform:scale(1.05);
+  box-shadow:0 0 15px lawngreen;
+}
+
+@media(max-width:768px){
+
+  .cta-container{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .cta-text h2{
+    font-size:28px;
+  }
+
+  .cta-text h3{
+    font-size:16px;
+  }
+
+  .cta-text p{
+    font-size:14px;
+  }
+
+  .cta-image img{
+    max-width:100%;
+  }
+}
+
+
+.roadmap-section{
+    width: 100%;
+    padding: 90px 8%;
+    background: black;
+    font-family: Arial, sans-serif;
+}
+
+.roadmap-heading{
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.roadmap-heading h1{
+    font-size: 58px;
+    font-weight: 800;
+    color: white;
+    line-height: 1.3;
+}
+
+.roadmap-heading span{
+    color: lawngreen;
+}
+
+.roadmap-heading p{
+    margin-top: 20px;
+    font-size: 22px;
+    color: white;
+    line-height: 1.6;
+}
+
+.roadmap-container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.roadmap-card{
+    width: 350px;
+    text-align: center;
+}
+
+.roadmap-card h2{
+    font-size: 20px;
+    color: white;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.roadmap-img{
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.roadmap-img img{
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media(max-width: 768px){
+
+    .roadmap-heading h1{
+        font-size: 36px;
+    }
+
+    .roadmap-heading p{
+        font-size: 18px;
+    }
+
+    .roadmap-card{
+        width: 100%;
+    }
+
+    .roadmap-img{
+        height: 420px;
+    }
+}
+
+
+.trust-section{
+  width:100%;
+  background:black;
+  color:white;
+  padding:80px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.trust-text{
+  flex:1;
+}
+
+.trust-text h2{
+  font-size:38px;
+  color:white;
+  margin-bottom:20px;
+  margin-left: 40px;
+}
+
+.trust-text p{
+  font-size:16px;
+  line-height:1.8;
+  margin-bottom:20px;
+  opacity:0.9;
+  margin-left: 40px;
+}
+
+.trust-text ul{
+  list-style:none;
+  padding:0;
+}
+
+.trust-text ul li{
+  font-size:16px;
+  margin-bottom:10px;
+  margin-left: 40px;
+}
+
+.trust-image{
+  flex:1;
+  text-align:center;
+}
+
+.trust-image img{
+  width:100%;
+  max-width:450px;
+  border-radius:10px;
+}
+
+@media(max-width:768px){
+
+  .trust-section{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .trust-text h2{
+    font-size:28px;
+  }
+
+  .trust-text p,
+  .trust-text ul li{
+    font-size:14px;
+  }
+
+  .trust-image img{
+    max-width:100%;
+  }
+}
+
+
+
+
+.review-section{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+
+.review-section h1{
+    font-size: 55px;
+    font-weight: bold;
+    color: white;
+}
+
+.review-section p{
+    font-size: 20px;
+    color: white;
+    margin-top: 15px;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+/* DEFAULT: 6 cards only */
+.card{
+    width: 320px;
+    background-color: black;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s;
+    padding-bottom: 20px;
+}
+
+/* hide extra cards */
+.cards .card{
+    display: none;
+}
+
+/* show first 6 cards */
+.cards .card:nth-child(-n+6){
+    display: block;
+}
+
+/* SHOW ALL (12 cards) */
+.cards.show-all .card{
+    display: block;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 25px rgba(255,255,255,0.15);
+}
+
+.card img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.card h2{
+    margin-top: 15px;
+    font-size: 28px;
+    color: white;
+}
+
+.card span{
+    color: gold;
+    font-size: 20px;
+}
+
+.card p{
+    padding: 15px;
+    font-size: 17px;
+    line-height: 28px;
+    color: white;
+}
+@media (max-width: 1024px){
+
+    .review-section h1{
+        font-size: 40px;
+    }
+
+    .review-section p{
+        font-size: 18px;
+    }
+
+    .card{
+        width: 45%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+    .review-section h1{
+        font-size: 30px;
+    }
+
+    .review-section p{
+        font-size: 16px;
+    }
+
+    .cards{
+        gap: 25px;
+    }
+
+    .card{
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px){
+
+    .review-section h1{
+        font-size: 24px;
+    }
+
+    .review-section p{
+        font-size: 14px;
+    }
+
+    .card img{
+        height: 220px;
+    }
+
+    .card h2{
+        font-size: 22px;
+    }
+
+    .card p{
+        font-size: 15px;
+        line-height: 24px;
+    }
+}
+.features-container{
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+
+.features-left{
+    width: 48%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature-box{
+    width: calc(40% - 10px);
+    background: black;
+    padding: 30px 25px;
+    box-sizing: border-box;
+    margin-left: 30px;
+    transition: 0.3s;
+    border:  1px solid white;
+}
+
+.feature-box:hover{
+    transform: translateY(-5px);
+}
+
+.feature-icon{
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.feature-box h3{
+    font-size: 28px;
+    color: lawngreen;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.feature-box p{
+    font-size: 20px;
+    line-height: 1.7;
+    color:white;
+}
+
+/* RIGHT SIDE */
+
+.features-right{
+    width: 48%;
+
+  }
+
+.features-right h1{
+    font-size: 60px;
+    line-height: 1.2;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.features-right h1 span{
+    color: lawngreen;
+}
+
+.features-right p{
+    font-size: 15px;
+    line-height: 2.1;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.chat-btn{
+    display: inline-block;
+    padding: 15px 40px;
+    background: lawngreen;
+    color: black;
+    text-decoration: none;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+
+
+ font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.chat-btn:hover{
+  background:white;
+  transform:scale(1.05);
+  box-shadow:0 0 15px lawngreen;
+}
+
+
+
+
+
+.contact-info{
+  color: white;
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-info span{
+    font-size: 18px;
+    color: white;
+}
+
+
+@media(max-width: 991px){
+
+    .features-left,
+    .features-right{
+        width: 100%;
+    }
+}
+
+@media(max-width: 768px){
+
+    .feature-box{
+        width: 100%;
+    }
+
+    .features-right h1{
+        font-size: 38px;
+    }
+
+    .features-right p{
+        font-size: 18px;
+    }
+}
+/* VTUBER SECTION */
+
+.vtuber-section{
+    width: 100%;
+    padding: 80px 8%;
+    font-family: Arial, sans-serif;
+    background: black;
+}
+
+.vtuber-heading{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.vtuber-heading h1{
+    font-size: 55px;
+    color: white;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.vtuber-heading span{
+    color: lawngreen;
+}
+
+.vtuber-heading p{
+    font-size: 20px;
+    color: white;
+    line-height: 1.7;
+}
+
+/* CONTAINER */
+
+.vtuber-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* LEFT & RIGHT */
+
+.vtuber-left,
+.vtuber-right{
+    width: 48%;
+}
+
+/* IMAGE */
+
+.vtuber-image{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.vtuber-image img{
+    width: 100%;
+    display: block;
+}
+
+
+.text-box{
+    margin-bottom: 35px;
+}
+
+.text-box h2{
+    font-size: 30px;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.text-box p{
+    font-size: 13px;
+    line-height: 1.8;
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 991px){
+
+    .vtuber-left,
+    .vtuber-right{
+        width: 100%;
+    }
+
+    .vtuber-heading h1{
+        font-size: 40px;
+    }
+}
+
+@media(max-width: 768px){
+
+    .vtuber-heading h1{
+        font-size: 32px;
+    }
+
+    .text-box h2{
+        font-size: 24px;
+    }
+
+    .text-box p{
+        font-size: 17px;
+    }
+}
+
+li{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+li img{
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+
+
+.question-page{
+  width:100%;
+  min-height:100vh;
+  background-color: black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
+}
+
+.question-box{
+  color:white;
+}
+
+.question-logo{
+  width:140px;
+  margin-bottom:20px;
+}
+
+.question-box h1{
+  font-size:55px;
+  margin-bottom:20px;
+  font-weight:bold;
+}
+
+.question-box p{
+  font-size:18px;
+  margin-bottom:30px;
+}
+
+.start-btn{
+  height:55px;
+  width:180px;
+  border:none;
+  border-radius:40px;
+  background:white;
+  color:black;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.question-box h3{
+  margin-top:20px;
+  font-size:18px;
+}
+
+@media(max-width:768px){
+
+.question-box h1{
+  font-size:32px;
+}
+
+.question-box p{
+  font-size:14px;
+}
+
+.start-btn{
+  width:140px;
+  height:48px;
+}
+
+}
+
+.answer-btn{
+  display:block;
+  width:250px;
+  margin:15px auto;
+  padding:15px;
+  border:none;
+  border-radius:40px;
+  background:white;
+  color:black;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+
+/* FAQ SECTION */
+
+.faq-section{
+  width:100%;
+  padding:80px 8%;
+  background:black;
+  font-family:Arial, sans-serif;
+}
+
+.faq-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.faq-title h2{
+  color:white;
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.faq-title p{
+  color:#cfcfcf;
+  font-size:16px;
+}
+
+/* FAQ CONTAINER */
+
+.faq-container{
+  max-width:900px;
+  margin:auto;
+}
+
+/* FAQ BOX */
+
+.faq-box{
+  background:#111;
+  border:2px solid lawngreen;
+  border-radius:14px;
+  margin-bottom:20px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.faq-box:hover{
+  transform:translateY(-3px);
+}
+
+/* QUESTION */
+
+.faq-question{
+  padding:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+}
+
+.faq-question h3{
+  color:white;
+  font-size:18px;
+  font-weight:600;
+}
+
+.faq-question span{
+  color:lawngreen;
+  font-size:30px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+/* ANSWER */
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s ease;
+}
+
+.faq-answer p{
+  color:white;
+  padding:0 22px 22px;
+  line-height:1.8;
+  font-size:15px;
+}
+
+/* ACTIVE */
+
+.faq-box.active .faq-answer{
+  max-height:200px;
+}
+
+.faq-box.active .faq-question span{
+  transform:rotate(45deg);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+  .faq-section{
+    padding:60px 5%;
+  }
+
+  .faq-title h2{
+    font-size:30px;
+  }
+
+  .faq-title p{
+    font-size:14px;
+  }
+
+  .faq-question{
+    padding:18px;
+  }
+
+  .faq-question h3{
+    font-size:15px;
+  }
+
+  .faq-answer p{
+    font-size:14px;
+  }
+
+}
+
+
+
+
+
+body{
+    background:black;
+}
+
+/* FOOTER */
+
+.footer{
+    width:100%;
+    background:black;
+    color:white;
+    padding:70px 8%;
+    border-top:1px solid #222;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+/* LEFT */
+
+.footer-left{
+    flex:1;
+    min-width:280px;
+}
+
+.footer-logo{
+    width:220px;
+    margin-bottom:25px;
+}
+
+.footer-left p{
+    color:#cfcfcf;
+    line-height:1.8;
+    font-size:17px;
+    margin-bottom:30px;
+}
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:20px;
+}
+
+.social-icons a{
+  width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid lawngreen;
+  border-radius:50%;
+  background:#111;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.social-icons a i{
+  color:white;
+  font-size:18px;
+}
+
+/* hover effect */
+.social-icons a:hover{
+  background:lawngreen;
+  transform:translateY(-5px);
+  box-shadow:0 0 15px lawngreen;
+}
+
+.social-icons a:hover i{
+  color:black;
+}
+
+/* CENTER */
+
+.footer-links{
+    flex:1;
+    min-width:220px;
+}
+
+.footer-links h2{
+    color:lawngreen;
+    margin-bottom:30px;
+    font-size:30px;
+}
+
+.footer-links ul{
+    list-style:none;
+}
+
+.footer-links ul li{
+    margin-bottom:18px;
+}
+
+.footer-links ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.footer-links ul li a:hover{
+    color:lawngreen;
+    padding-left:8px;
+}
+
+/* RIGHT */
+
+.footer-location{
+    flex:1;
+    min-width:220px;
+}
+
+.footer-location h2{
+    color:lawngreen;
+    margin-bottom:30px;
+    font-size:30px;
+}
+
+.footer-location ul{
+    list-style:none;
+}
+
+.footer-location ul li{
+    margin-bottom:18px;
+}
+
+.footer-location ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.footer-location ul li a:hover{
+    color:lawngreen;
+    padding-left:8px;
+}
+
+/* COPYRIGHT */
+
+.copy{
+    width:100%;
+    text-align:center;
+    color:#999;
+    border-top:1px solid #222;
+    padding-top:30px;
+    margin-top:50px;
+    font-size:16px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.footer-container{
+    flex-direction:column;
+    gap:50px;
+}
+
+.footer-links h2,
+.footer-location h2{
+    font-size:26px;
+}
+
+}
+
+
+.cards .card{
+  display:none;
+}
+
+.cards .card:nth-child(-n+6){
+  display:block;
+}
+
+.cards.show-all .card{
+  display:block;
+}
+
+
+
+@media(max-width:768px){
+
+.two-nav-black{
+  flex-wrap:wrap;
+  height:auto;
+}
+
+.hero-text h1{
+  font-size:26px;
+}
+
+.hero-btn{
+  width:100%;
+}
+
+}
+
+
+@media(max-width:768px){
+
+.features-container{
+  flex-direction:column;
+}
+
+.features-left,
+.features-right{
+  width:100%;
+}
+
+}
+
+@media(max-width:768px){
+
+.features-container{
+  flex-direction:column;
+}
+
+.feature-box{
+  width:100%;
+}
+
+.features-right h1{
+  font-size:26px;
+  text-align:center;
+}
+
+.features-right p{
+  text-align:center;
+}
+
+.chat-btn{
+  display:block;
+  text-align:center;
+  margin:auto;
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+.features-container{
+  flex-direction:column;
+  align-items:center;
+}
+
+.features-left,
+.features-right{
+  width:100%;
+}
+
+.feature-box{
+  width:90%;
+  margin:10px auto;
+}
+
+}
+
+@media(max-width:768px){
+
+.features-right{
+  text-align:center;
+}
+
+.features-right h1{
+  font-size:28px;
+  text-align:center;
+}
+
+.features-right p{
+  font-size:15px;
+  text-align:center;
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+.chat-btn{
+  padding:10px 25px;
+  font-size:15px;
+  display:inline-block;
+}
+
+}
+
+
+@media(max-width:768px){
+
+  .trust-section{
+    flex-direction:column;
+    text-align:center;
+    padding:60px 20px;
+  }
+
+  .trust-text{
+    width:100%;
+  }
+
+  .trust-text h2{
+    font-size:30px;
+    line-height:1.4;
+    margin-left:0;
+    text-align:center;
+  }
+
+  .trust-text p{
+    font-size:15px;
+    line-height:1.8;
+    margin-left:0;
+    text-align:center;
+  }
+
+  .trust-text ul li{
+    margin-left:0;
+    justify-content:center;
+    text-align:left;
+  }
+
+  .trust-image{
+    width:100%;
+    margin-top:20px;
+  }
+
+  .trust-image img{
+    width:100%;
+    max-width:350px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .hero-btn{
+    width:240px;
+    height:45px;
+    font-size:14px;
+    display:block;
+    margin:10px 0;
+  }
+
+}
+
+
+@media(max-width:768px){
+
+  .contact-info{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:10px;
+    margin-top:20px;
+    width:100%;
+  }
+
+  .contact-info span{
+    width:100%;
+    font-size:15px;
+    line-height:1.6;
+  }
+
+}
+
+/* ================= PRICING SECTION ================= */
+
+.pricing-section{
+
+    width:100%;
+    min-height:100vh;
+
+    background:black;
+
+    color:white;
+
+    padding:80px 20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.pricing-content{
+    width:100%;
+    max-width:1100px;
+    text-align:center;
+}
+
+/* HEADING */
+
+.pricing-content h1{
+
+    font-size:55px;
+    line-height:1.2;
+
+    margin-bottom:20px;
+}
+
+.pricing-content h1 span{
+    color:lawngreen;
+}
+
+/* PARAGRAPH */
+
+.pricing-content p{
+
+    max-width:850px;
+
+    margin:auto;
+
+    color:#ccc;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    margin-bottom:50px;
+}
+
+/* TABLE BOX */
+
+.table-box{
+
+    width:100%;
+
+    overflow-x:auto;
+
+    border-radius:15px;
+
+    border:1px solid #222;
+
+    background:#111;
+}
+
+/* TABLE */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:800px;
+}
+
+/* HEAD */
+
+th{
+
+    background:lawngreen;
+
+    color:black;
+
+    padding:18px;
+
+    font-size:16px;
+}
+
+/* BODY */
+
+td{
+
+    padding:18px;
+
+    border-bottom:1px solid #222;
+
+    color:white;
+
+    font-size:15px;
+}
+
+/* HOVER */
+
+tr:hover{
+    background:#1a1a1a;
+}
+
+/* BUTTON */
+
+.price-btn{
+
+    margin-top:35px;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:lawngreen;
+
+    color:black;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.price-btn:hover{
+
+    transform:scale(1.05);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    .pricing-content h1{
+        font-size:35px;
+    }
+
+    .pricing-content p{
+        font-size:15px;
+    }
+
+    th, td{
+        padding:14px;
+        font-size:14px;
+    }
+
+    .price-btn{
+        width:100%;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media(max-width:480px){
+
+    .pricing-content h1{
+        font-size:28px;
+    }
+
+    .pricing-content p{
+        font-size:14px;
+    }
+
+    th, td{
+        font-size:13px;
+    }
+}
+
+/* ================= SECTION ================= */
+
+.vtuber-commision{
+    width:100%;
+    background:black;
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.vtuber-headingss{
+    width:100%;
+    max-width:1200px;
+    text-align:center;
+}
+
+/* HEADING */
+
+.vtuber-headingss h1{
+    color:white;
+    font-size:55px;
+    line-height:1.3;
+    font-weight:bold;
+    margin-bottom:35px;
+}
+
+/* PARAGRAPH */
+
+.vtuber-headingss p{
+    color:#d8d8d8;
+    font-size:24px;
+    line-height:1.9;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* GREEN TEXT */
+
+.vtuber-headingss span{
+    color:lawngreen;
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:992px){
+
+    .vtuber-headingss h1{
+        font-size:42px;
+    }
+
+    .vtuber-headingss p{
+        font-size:20px;
+        line-height:1.8;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+    .vtuber-commision{
+        padding:60px 18px;
+    }
+
+    .vtuber-headingss h1{
+        font-size:32px;
+        line-height:1.4;
+    }
+
+    .vtuber-headingss p{
+        font-size:17px;
+        line-height:1.8;
+    }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media(max-width:480px){
+
+    .vtuber-commision h1{
+        font-size:26px;
+    }
+
+    .vtuber-commision p{
+        font-size:15px;
+        line-height:1.7;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP NAV ONLY -->
+
+
+
+
+<!-- TOP BAR -->
+<div class="one-nav-black"></div>
+
+<!-- NAVBAR -->
+<div class="two-nav-black">
+
+<a href="#">
+   <img class="logo" src="images/logo.png">
+</a>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+ <div class="nav-bar">
+  <a href="#">About Us</a>
+  <a href="./portfolio.html">Portfolio And Reviews</a>
+  <a href="#">Locations</a>
+  <a href="#">Contact Us</a>
+
+  <button class="btn" onclick="window.location.href='next.html'">
+    Commission your Model
+  </button>
+
+</div>
+
+</div>
+
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+  <a href="#">About Us</a>
+  <a href="./portfolio.html">Portfolio And Reviews</a>
+  <a href="#">Locations</a>
+  <a href="#">Contact Us</a>
+
+  <button class="btn" style="margin-left:20px;width:200px;" onclick="window.location.href='next.html'">
+    Commission your Model
+  </button>
+</div>
+
+<!-- HERO -->
+<div class="back-img">
+
+  <div class="hero-text">
+
+    <h1>Gaming VTuber Custom Models</h1>
+
+    <h3>2D | 3D | Live2D | PNGTuber | VRChat</h3>
+
+    <p>Professional VTuber models for streamers and creators.</p>
+
+    <ul>
+      <li>Custom Anime Design</li>
+      <li>Streaming Ready</li>
+      <li>Face Tracking Support</li>
+      <li>Smooth Face Tracking & Rigging</li>
+      <li>Twitch & YouTube Ready Models</li>
+      <li>Commercial Use Included</li>
+    </ul>
+
+  <a href="portfolio.html">
+   <button class="hero-btn">
+      See Portfolio and Reviews
+   </button>
+</a>
+<button class="hero-btn" onclick="window.location.href='next.html'">
+   Make My Vtuber Model
+</button>
+
+  </div>
+
+</div>
+
+<!-- DREAM SECTION -->
+<div class="dream-vtuber">
+
+  <div class="dream-content">
+
+    <h1>Create Your Dream VTuber Identity With <span> GamingVTuber </span></h1>
+
+    <p>
+      Gaming VTuber is a creative VTuber design studio specializing in custom VTuber models, Live2D rigging, anime avatars, and virtual streamer branding. Whether you’re starting your first Twitch stream or building a professional virtual creator brand, our team creates high-quality VTuber avatars designed to match your personality and audience.
+      <br><br>
+      We help creators transform their ideas into expressive virtual identities that engage viewers and build memorable online personas.
+    </p>
+
+<img src="images/hero.png" alt="">
+  </div>
+
+</div>
+
+<!-- SERVICES SECTION -->
+<div class="services-section">
+
+  <h1>Our VTuber Services</h1>
+  <p>Professional VTuber solutions for streamers, creators, gamers, and virtual entertainers.</p>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <h2>2D VTuber Models</h2>
+      <p>Professional anime-style VTuber avatars designed for streaming and content creation.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>Live2D Rigging</h2>
+      <p>Smooth facial tracking, realistic movement, blinking, physics, and professional animation rigging.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>3D VTuber Models</h2>
+      <p>Custom 3D avatars for VRChat, VSeeFace, motion capture, and virtual streaming.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>PNGTubers</h2>
+      <p>Affordable animated PNG avatars perfect for beginner streamers and creators.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>VTuber Expressions</h2>
+      <p>Custom reactions, emotional expressions, outfit toggles, and interactive features.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>VRChat Avatars</h2>
+      <p>Immersive VR-ready avatars designed for VRChat and metaverse experiences.</p>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- PROCESS SECTION -->
+<div class="process-section">
+
+  <div class="process-container">
+
+    <div class="process-image">
+      <img src="images/left.png">
+    </div>
+
+    <div class="process-content">
+
+      <h1>How We Create Your VTuber Model</h1>
+
+      <div class="step">
+        <span class="num">1</span>
+        <div>
+          <h2>Share Your Character Idea</h2>
+          <p>Tell us about your character personality, style, colors, references, and streaming goals.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="num">2</span>
+        <div>
+          <h2>Character Sketch & Design</h2>
+          <p>Our team creates a professional concept based on your vision and anime aesthetic.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="num">3</span>
+        <div>
+          <h2>Model Illustration & Layering</h2>
+          <p>We prepare high-quality layered artwork optimized for Live2D rigging.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="num">4</span>
+        <div>
+          <h2>Rigging & Animation</h2>
+          <p>Smooth facial expressions, eye tracking, physics, and animations are added professionally.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="num">5</span>
+        <div>
+          <h2>Final Delivery</h2>
+          <p>Receive a fully prepared VTuber model ready for VTube Studio, Twitch, and YouTube streaming.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<section class="vtuber-section">
+
+  <div class="heading">
+    <h1>WHY CHOOSE US</h1>
+    <p>Why Streamers Choose <span> Gaming VTuber </span></p>
+  </div>
+
+  <div class="card-wrapper">
+
+    <div class="card" id="cards">
+      <h3>Professional VTuber Artists</h3>
+      <p>Experienced anime artists and riggers dedicated to creating high-quality virtual avatars.</p>
+    </div>
+
+    <div class="card">
+      <h3>Stream-Ready Models</h3>
+      <p>All VTuber models are optimized for VTube Studio, OBS, Twitch, and YouTube.</p>
+    </div>
+
+    <div class="card">
+      <h3>Custom Designs</h3>
+      <p>Every avatar is uniquely designed according to your personality and brand style.</p>
+    </div>
+
+    <div class="card">
+      <h3>Smooth Live2D Rigging</h3>
+      <p>Natural facial movement, realistic expressions, and fluid animations for professional streaming.</p>
+    </div>
+
+    <div class="card">
+      <h3>Fast Communication</h3>
+      <p>Quick updates, revisions, and responsive support throughout the project.</p>
+    </div>
+
+    <div class="card">
+      <h3>Commercial Rights Included</h3>
+      <p>Use your VTuber model for streaming, monetization, content creation, and branding.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="cta-section">
+
+  <div class="cta-container">
+
+    <div class="cta-image">
+      <img src="images/cta.png" alt="CTA Image">
+    </div>
+
+    <div class="cta-text">
+
+
+      <h3> <span>Gaming VTuber</span> Guarantees Premium Quality & Complete Satisfaction</h3>
+
+      <p>
+        At Gaming VTuber, we focus on creating high-quality VTuber models, Live2D rigging, and custom virtual avatars tailored for streamers, gamers, and content creators. Our team ensures every project is polished, expressive, and stream-ready with unlimited support and revisions to match your vision perfectly.
+      </p>
+
+    <button class="cta-btn" onclick="window.location.href='next.html'">
+   Create My VTuber
+</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- ================= PRICING SECTION ================= -->
+
+<section class="pricing-section">
+
+    <div class="pricing-content">
+
+        <h1>
+            How Much Does a
+            <span>VTuber Model</span>
+            Commission Cost?
+        </h1>
+
+        <p>
+            Transparent pricing across all tiers — shown in USD, GBP, CAD,
+            and AUD — with commercial license available as a standalone
+            add-on or bundled with any model.
+        </p>
+
+        <!-- TABLE -->
+
+        <div class="table-box">
+
+            <table>
+
+                <tr>
+                    <th>Service / Tier</th>
+                    <th>USD</th>
+                    <th>GBP</th>
+                    <th>CAD</th>
+                    <th>AUD</th>
+                    <th>Delivery</th>
+                </tr>
+
+                <tr>
+                    <td>PNGtuber</td>
+                    <td>$40</td>
+                    <td>£30</td>
+                    <td>CAD $55</td>
+                    <td>AUD $60</td>
+                    <td>48 hrs</td>
+                </tr>
+
+                <tr>
+                    <td>2D Basic Model</td>
+                    <td>$450</td>
+                    <td>£380</td>
+                    <td>CAD $580</td>
+                    <td>AUD $700</td>
+                    <td>2-3 wks</td>
+                </tr>
+
+                <tr>
+                    <td>2D Standard Model</td>
+                    <td>$1200</td>
+                    <td>£980</td>
+                    <td>CAD $1550</td>
+                    <td>AUD $1850</td>
+                    <td>3-4 wks</td>
+                </tr>
+
+                <tr>
+                    <td>3D VTuber Model</td>
+                    <td>$1300</td>
+                    <td>£1050</td>
+                    <td>CAD $1700</td>
+                    <td>AUD $2000</td>
+                    <td>4-6 wks</td>
+                </tr>
+
+                <tr>
+                    <td>Debut Package</td>
+                    <td>$650</td>
+                    <td>£520</td>
+                    <td>CAD $840</td>
+                    <td>AUD $1000</td>
+                    <td>3-4 wks</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <!-- BUTTON -->
+<button class="price-btn" onclick="window.location.href='#'">
+    See Full Pricing Breakdown →
+</button>
+
+    </div>
+
+</section>
+
+
+
+<section class="roadmap-section">
+
+    <div class="roadmap-heading">
+        <h1>
+            The Roadmap Towards <span>Best Selling</span><br>
+            <span>Artwork</span> For You
+        </h1>
+
+        <p>
+            As one of the best book cover design services, we have adopted
+            a simple roadmap towards our services.
+        </p>
+    </div>
+
+  <!-- boxes -->
+
+    <div class="roadmap-container">
+
+        <div class="roadmap-card">
+            <h2>You Think of An Artwork</h2>
+
+            <div class="roadmap-img">
+                <img src="images/sketch.png" alt="">
+            </div>
+        </div>
+
+        <div class="roadmap-card">
+            <h2>We Breathe Soul Into It</h2>
+
+            <div class="roadmap-img">
+                <img src="images/draw.png" alt="">
+            </div>
+        </div>
+
+        <div class="roadmap-card">
+            <h2>Get Perfect Design In Action</h2>
+
+            <div class="roadmap-img">
+                <img src="images/frame.png" alt="">
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION -->
+
+<div class="vtuber-commision">
+
+    <div class="vtuber-headingss">
+
+        <h1>
+            VTuber Commissions for Streamers Worldwide —
+            <span>USA, UK, Canada & Australia</span>
+        </h1>
+
+        <p>
+            Whether you are a Twitch Affiliate in the USA commissioning your first
+            2D Live2D model, a UK gamer building your YouTube channel with a custom
+            avatar priced in GBP, a Canadian streamer preparing a full VTuber debut
+            package in CAD, or an Australian creator looking for a dedicated
+            commission service that supports both Twitch and Kick with AUD pricing —
+            we build models that match your identity and stream on every platform
+            you stream from.
+
+            All commissions include full model ownership, and a commercial license
+            is available to cover Twitch subscriptions, YouTube monetization,
+            merchandise, and brand deals across all four markets.
+
+            Every tier is priced transparently in USD, GBP, CAD, and AUD —
+            no currency guesswork, no geo-gating.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="trust-section">
+
+  <!-- TEXT SIDE -->
+  <div class="trust-text">
+
+    <h2>Over 1M+ <span> Creators and Streamers </span> Trust Our Design Expertise</h2>
+
+    <p>
+      Our expert team of creative book cover designers helps authors and brands stand out with powerful, high-impact cover designs. We focus on storytelling through visuals that instantly capture attention and increase engagement. Thousands of clients trust us to transform their ideas into bestselling visual identities after experiencing average results elsewhere. Explore our growing portfolio of successful projects and satisfied clients worldwide.
+    </p>
+
+    <ul>
+<li><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png"> +92 312 1175509</li>
+
+<li><img src="https://cdn-icons-png.flaticon.com/512/2972/2972531.png"> 24/7 Support Available</li>
+
+<li><img src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png"> Live Chat Assistance</li>
+
+<li><img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"> Creative VTuber Solutions</li>
+
+<li><img src="https://cdn-icons-png.flaticon.com/512/616/616489.png"> Trusted By Happy Clients</li>
+    </ul>
+
+  </div>
+
+  <!-- IMAGE SIDE -->
+  <div class="trust-image">
+    <img src="images/college.png" alt="Icons Image">
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="review-section">
+
+    <h1>See what <span>VTubers</span> say about us</h1>
+
+    <p>
+        Take a look at what these featured content creators say
+        about the VTuber model commissions we've done for them.
+    </p>
+
+    <div class="cards" id="cards">
+
+        <!-- CARD 1 -->
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc3c4ecb4f496f69702f1d_vtuber-example-JJerico_.jpg">
+            <h2>JJerico_</h2>
+            <span>★★★★★</span>
+            <p>“Luna was very helpful and patient when I didn’t understand some things”.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc3142e4b0a5026e9c1274_vtuber-example-lukanenv.jpg">
+            <h2>RinGyo</h2>
+            <span>★★★★★</span>
+            <p>“Amazing experience from start to finish. The model quality was incredible.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc29321d4a7950e7eb4c27_vtuber-example-Hzope-100.jpg">
+            <h2>Hzope</h2>
+            <span>★★★★★</span>
+            <p>“The artist understood exactly what I wanted and delivered beyond expectations.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63e22c16fc264b2c9cb4a9d0_vtuber-example-eye.jpg">
+            <h2>LunaChan</h2>
+            <span>★★★★★</span>
+            <p>“Very smooth communication and the final VTuber model looked stunning.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc3142e4b0a5026e9c1274_vtuber-example-lukanenv.jpg">
+            <h2>Mika</h2>
+            <span>★★★★★</span>
+            <p>“Everything was handled professionally and the animations felt super natural.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc455f8f7a074e8c4c6e5e_vtuber-example-AP.jpg">
+            <h2>Sakura</h2>
+            <span>★★★★★</span>
+            <p>“Fast delivery, beautiful art style and excellent support throughout the project.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc455f8f7a074e8c4c6e5e_vtuber-example-AP.jpg">
+            <h2>Yuki</h2>
+            <span>★★★★★</span>
+            <p>“Very smooth communication and the final VTuber model looked stunning.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc3142e4b0a5026e9c1274_vtuber-example-lukanenv.jpg">
+            <h2>Airi</h2>
+            <span>★★★★★</span>
+            <p>“Everything was handled professionally and the animations felt super natural.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63e22c16fc264b2c9cb4a9d0_vtuber-example-eye.jpg">
+            <h2>Neko</h2>
+            <span>★★★★★</span>
+            <p>“Fast delivery, beautiful art style and excellent support throughout the project.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63e22c16fc264b2c9cb4a9d0_vtuber-example-eye.jpg">
+            <h2>Yoko</h2>
+            <span>★★★★★</span>
+            <p>“Amazing VTuber experience and smooth communication.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc29321d4a7950e7eb4c27_vtuber-example-Hzope-100.jpg">
+            <h2>Yumi</h2>
+            <span>★★★★★</span>
+            <p>“Professional team and beautiful VTuber design.”</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn.prod.website-files.com/63d514cad353ff313aa22295/63dc455f8f7a074e8c4c6e5e_vtuber-example-AP.jpg">
+            <h2>Kira</h2>
+            <span>★★★★★</span>
+            <p>“Highly recommended for streamers and creators.”</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<section class="features-section">
+
+    <div class="features-container">
+
+        <!-- LEFT BOXES -->
+        <div class="features-left">
+
+            <div class="feature-box">
+                <div class="feature-icon">
+                    ✏️
+                </div>
+
+                <h3>Enthusiast Designers</h3>
+
+                <p>
+                    Our designers' enthusiasm and restless passion is the
+                    biggest strength that makes your audience captivate
+                    the book at a glance.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">
+                    📝
+                </div>
+
+                <h3>Transparent Process</h3>
+
+                <p>
+                    We are an honest book
+                    [/'
+                     cover design agency and we keep
+                    everything clear between the client and us.
+                    You'd know every move of the designer.
+                </p>
+            </div>
+
+            <!-- BOX 3 -->
+            <div class="feature-box">
+                <div class="feature-icon">
+                    📄
+                </div>
+
+                <h3>Affordable Help</h3>
+
+                <p>
+                    Low-priced book cover designs are no longer scary!
+                    With us, you get the UK's most professional and
+                    cheap book cover design services.
+                </p>
+            </div>
+
+            <!-- BOX 4 -->
+            <div class="feature-box">
+                <div class="feature-icon">
+                    ✨
+                </div>
+
+                <h3>Fully Personalized</h3>
+
+                <p>
+                    A cover design sold once is never sold again —
+                    and that's a promise. For each client, the team
+                    begins working from a clean slate.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="features-right">
+
+            <h1>
+                What Keeps VTubers <br>
+                <span>Ahead of The Curve?</span>
+            </h1>
+
+            <p>
+                No myths — no castles in the air; as a highly professional
+                book cover design service in the UK, we work with a
+                well-thought and human-mentality approach.
+                This means that the excellent art covers we designed
+                are not produced incidentally.
+            </p>
+
+            <p>
+                Another thing that keeps us one step ahead of other
+                global book cover design companies is our deep emphasis
+                on customer experience. The client's preference is taken
+                into great consideration.
+            </p>
+
+            <a href="#" class="chat-btn">
+                Start Live Chat
+            </a>
+
+            <div class="contact-info">
+                <span>Email: mueed7031@gmail.com</span>
+                <span>Phone No: +92 312 1175 509</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="vtuber-section">
+
+    <!-- HEADING -->
+    <div class="vtuber-heading">
+        <h1>
+            Bring Your <span>VTuber Model</span> To Life...
+        </h1>
+
+        <p>
+            A professionally designed VTuber model can instantly elevate your
+            online presence and make your content unforgettable.
+        </p>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="vtuber-container">
+
+        <!-- LEFT -->
+        <div class="vtuber-left">
+
+            <div class="text-box">
+                <h2>
+                    Custom VTuber  <span> Models Designed </span>  To Match Your Personality
+                </h2>
+
+                <p>
+                    VTuber Model aims to create avatars that truly reflect
+                    your personality, niche, and streaming style.
+                </p>
+
+                <p>
+                    We carefully study your vision, audience, and content goals
+                    before starting the design process.
+                </p>
+            </div>
+
+            <div class="text-box">
+                <h2>
+                    Creative VTuber Avatars That Build <span> Strong Viewer  </span>Engagement
+                </h2>
+
+                <p>
+                    Great VTuber models are more than just visuals — they create
+                    emotional connections with viewers.
+                </p>
+
+                <p>
+                    From gaming channels and live streaming to YouTube content
+                    and virtual performances.
+                </p>
+            </div>
+
+            <div class="text-box">
+                <h2>
+                    Professional VTuber <span> Designers With Industry </span> Experience
+                </h2>
+
+                <p>
+                    Our talented VTuber artists and illustrators have years
+                    of experience in anime art and character concept design.
+                </p>
+
+                <p>
+                    Over the years, VTuber Model has helped streamers,
+                    gamers, influencers, and creators.
+                </p>
+            </div>
+
+            <div class="text-box">
+                <h2>
+                    VTuber Model <span>Services Available </span> Worldwide
+                </h2>
+
+                <p>
+                    Whether you are located in the UK, USA, Canada, UAE,
+                    Australia, or anywhere else in the world.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="vtuber-right">
+
+            <!-- IMAGE -->
+            <div class="vtuber-image">
+                <img src="images/right.png" alt="">
+            </div>
+
+            <div class="text-box">
+                <h2>
+                    High-Quality VTuber <span> Models Tailored </span> For Every Creator
+                </h2>
+
+                <p>
+                    Every creator has a unique story, and our mission is
+                    to transform that vision into a captivating VTuber character.
+                </p>
+
+                <p>
+                    Before beginning the project, our team brainstorms ideas,
+                    concepts, and develops a visual direction.
+                </p>
+            </div>
+
+            <div class="text-box">
+                <h2>
+                    VTuber Model  <span>Services With Exceptional </span> Client Satisfaction
+                </h2>
+
+                <p>
+                    Our VTuber model design service is trusted by creators
+                    who value quality, creativity, and professionalism.
+                </p>
+
+                <p>
+                    By combining artistic creativity, anime aesthetics,
+                    and modern design techniques.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+</section>
+
+
+
+
+
+<section class="question-page">
+
+<div class="question-box">
+
+<img src="images/logo.png" class="question-logo">
+
+<h1 id="question">
+Answer a few short questions <br>
+about your avatar
+</h1>
+
+<p id="desc">
+Then we'll either start creating your avatar right away
+or talk to you about your project.
+</p>
+
+<div id="answers">
+
+<button class="start-btn" onclick="startForm()">
+  Start
+</button>
+
+</div>
+
+<h3>⏱️ Takes 3 minutes</h3>
+
+</div>
+
+</section>
+
+
+<section class="faq-section">
+
+  <div class="faq-title">
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you need to know before ordering.</p>
+  </div>
+
+  <div class="faq-container">
+
+    <!-- FAQ 1 -->
+    <div class="faq-box">
+      <div class="faq-question">
+        <h3>What do I need before ordering?</h3>
+        <span>+</span>
+      </div>
+
+      <div class="faq-answer">
+        <p>
+          You only need your VTuber idea, reference image, or concept.
+          Our team will guide you through the full process.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="faq-box">
+      <div class="faq-question">
+        <h3>Which software do your models support?</h3>
+        <span>+</span>
+      </div>
+
+      <div class="faq-answer">
+        <p>
+          Our VTuber models support VTube Studio, OBS, Twitch,
+          YouTube, VSeeFace, and VRChat.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="faq-box">
+      <div class="faq-question">
+        <h3>Can I use the model commercially?</h3>
+        <span>+</span>
+      </div>
+
+      <div class="faq-answer">
+        <p>
+          Yes! You can use your VTuber model for streaming,
+          YouTube, Twitch, branding, and commercial use.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="faq-box">
+      <div class="faq-question">
+        <h3>Do you provide revisions?</h3>
+        <span>+</span>
+      </div>
+
+      <div class="faq-answer">
+        <p>
+          Yes, we provide revisions to make sure your
+          VTuber model looks perfect for your brand.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 5 -->
+    <div class="faq-box">
+      <div class="faq-question">
+        <h3>Do you create male and female VTubers?</h3>
+        <span>+</span>
+      </div>
+
+      <div class="faq-answer">
+        <p>
+          Absolutely! We create both male and female
+          VTuber models in anime, gaming, and custom styles.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+
+<div class="footer-container">
+
+    <!-- LEFT -->
+
+    <div class="footer-left">
+
+        <img src="images/logo.png" class="footer-logo">
+
+        <p>
+            GamingVTuber.com is a professional VTuber design
+            studio providing custom 2D VTuber models,
+            Live2D rigging, PNGTubers, and 3D VTuber avatars
+            for streamers and content creators worldwide.
+        </p>
+
+      <div class="social-icons">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+</div>
+
+    </div>
+
+    <!-- CENTER -->
+
+    <div class="footer-links">
+
+        <h2>Company</h2>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Our Portfolio</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Get Started</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+
+    </div>
+
+
+    <div class="footer-location">
+
+        <h2>Locations</h2>
+
+        <ul>
+            <li><a href="#">VTuber USA</a></li>
+            <li><a href="#">VTuber UK</a></li>
+            <li><a href="#">VTuber Germany</a></li>
+            <li><a href="#">VTuber Italy</a></li>
+            <li><a href="#">VTuber Canada</a></li>
+            <li><a href="#">VTuber Australia</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+<div class="copy">
+    © 2026 GamingVTuber.com — All Rights Reserved
+</div>
+
+</footer>
+
+
+
+
+
+
+</style>
+
+
+</head>
+
+<body>
+
+
+
+
+
+   
+
+
+</body>
+</html>
+
+
+
+
+
+<script>
+function toggleMenu(){
+  document.getElementById("sideMenu").classList.toggle("active");
+}
+
+/* SHOW 12 CARDS */
+
+function togglePortfolio(){
+
+  document.getElementById("cards").classList.toggle("show-all");
+
+}
+
+
+function showQuestionPage(){
+
+  document.querySelector(".question-page").scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+
+let step = 0;
+
+function startForm(){
+
+  step = 1;
+
+  showQuestion();
+
+}
+
+function showQuestion(){
+
+  let question =
+  document.getElementById("question");
+
+  let desc =
+  document.getElementById("desc");
+
+  let answers =
+  document.getElementById("answers");
+
+  if(step === 1){
+
+    question.innerHTML =
+    "What type of VTuber do you want?";
+
+    desc.innerHTML =
+    "Choose one option below";
+
+    answers.innerHTML = `
+
+      <button class="answer-btn"
+      onclick="nextStep()">
+
+      Gaming VTuber
+
+      </button>
+
+      <button class="answer-btn"
+      onclick="nextStep()">
+
+      Anime VTuber
+
+      </button>
+
+    `;
+
+  }
+
+}
+
+function nextStep(){
+
+  alert("Next Question 😎");
+
+}
+
+
+const faq = document.querySelectorAll(".faq-box");
+
+faq.forEach((item)=>{
+
+  const question = item.querySelector(".faq-question");
+
+  question.addEventListener("click", ()=>{
+
+    item.classList.toggle("active");
+
+  });
+
+});
+
+
+
+</script>
+
+</body>
+</html>

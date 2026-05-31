@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VTuber Form</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  width:100%;
+  height:100vh;
+
+  background:linear-gradient(
+  135deg,
+ black
+  );
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+  color:white;
+}
+
+.main-page{
+  width:90%;
+  max-width:700px;
+}
+
+.logo{
+  width:170px;
+  margin-bottom:30px;
+}
+
+h1{
+  font-size:35px;
+  color: white;
+  line-height:1.2;
+  margin-bottom:25px;
+}
+
+p{
+  font-size:15px;
+  line-height:1.5;
+  color: white;
+  margin-bottom:35px;
+}
+
+button{
+  height:40px;
+  width:130px;
+
+  border:none;
+  border-radius:5px;
+
+  background:white;
+  color:black;
+
+  font-size:20px;
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+h3{
+  margin-top:25px;
+  font-size:17px;
+}
+
+.answer-btn{
+  display:block;
+  width:100%;
+  margin:15px 0;
+}
+
+
+
+
+@media(max-width:768px){
+
+  h1{
+    font-size:38px;
+  }
+
+  p{
+    font-size:15px;
+  }
+
+  button{
+    width:90px;
+  }
+
+  .logo{
+    width:120px;
+  }
+
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="main-page">
+
+  <img src="images/logo.png" class="logo">
+
+  <h1 id="question">
+    Answer a few short questions <br> about your avatar
+   
+  </h1>
+
+  <p id="desc">
+    Then we'll either start creating your avatar
+    right away or talk to you about your project.
+  </p>
+
+  <div id="answers">
+
+    <button onclick="startForm()">
+      Start
+    </button>
+
+ </div> <h3> ⏱️ Takes 3 minutes </h3>
+
+</div>
+
+<script>
+
+let step = 0;
+
+function startForm(){
+
+  step = 1;
+
+  showQuestion();
+
+}
+
+function showQuestion(){
+
+  let question = document.getElementById("question");
+  let desc = document.getElementById("desc");
+  let answers = document.getElementById("answers");
+
+  if(step === 1){
+
+    question.innerHTML =
+    "What type of VTuber do you want?";
+
+    desc.innerHTML =
+    "Choose one option below";
+
+    answers.innerHTML = `
+
+      <button class="answer-btn"
+      onclick="nextStep()">
+
+      Gaming VTuber
+
+      </button>
+
+      <button class="answer-btn"
+      onclick="nextStep()">
+
+      Anime VTuber
+
+      </button>
+
+    `;
+
+  }
+
+  else if(step === 2){
+
+    question.innerHTML =
+    "Which style do you prefer?";
+
+    desc.innerHTML =
+    "Choose your avatar style";
+
+    answers.innerHTML = `
+
+      <button class="answer-btn"
+      onclick="finishForm()">
+
+      2D Model
+
+      </button>
+
+      <button class="answer-btn"
+      onclick="finishForm()">
+
+      3D Model
+
+      </button>
+
+    `;
+
+  }
+
+}
+
+function nextStep(){
+
+  step = 2;
+
+  showQuestion();
+
+}
+
+function finishForm(){
+
+  document.getElementById("question").innerHTML =
+  "Your Request Submitted";
+
+  document.getElementById("desc").innerHTML =
+  "We will contact you soon";
+
+  document.getElementById("answers").innerHTML = `
+
+    <button onclick="location.reload()">
+
+    Restart
+
+    </button>
+
+  `;
+
+}
+
+</script>
+
+</body>
+</html>
